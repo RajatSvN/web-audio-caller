@@ -1,0 +1,20 @@
+{
+  "name": "web-caller",
+  "version": "1.0.0",
+  "description": "An Internet Audio Caller made with Peer.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js -e .js,.css,.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "peer": "^0.6.1"
+  }
+}
