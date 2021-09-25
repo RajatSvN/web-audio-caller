@@ -1,12 +1,25 @@
 // can put global variables here
 let conn;
 let remoteContactId;
+let port;
+
+// this is a deployment fix specific to heroku
+// can be avoided if app is deployed on a static port
+// heroku has dynamic ports
+const request = new XMLHttpRequest();
+request.open("GET", "/port", false);
+request.send(null);
+
+if (request.status === 200) {
+  const response = JSON.parse(request.response);
+  port = response.port;
+}
 
 // connect to express peer server
 const peer = new Peer({
   host: "localhost",
   debug: 1,
-  port: 8080,
+  port: port,
   path: "/callServer",
 });
 

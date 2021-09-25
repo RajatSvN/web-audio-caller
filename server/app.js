@@ -17,12 +17,17 @@ const peerServer = ExpressPeerServer(server, {
   generateClientId: customGenerationFunction,
 });
 
+app.use(express.json());
 app.use(peerServer);
 
 app.use("/js", express.static(path.join(__dirname, "/../client/js")));
 app.use("/css", express.static(path.join(__dirname, "/../client/css")));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/../client") + "/index.html");
+});
+
+app.get("/port", (req, res) => {
+  res.send({ port: port });
 });
 
 peerServer.on("connection", (client) => {
