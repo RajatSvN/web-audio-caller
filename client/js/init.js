@@ -17,7 +17,7 @@ if (request.status === 200) {
 
 // connect to express peer server
 const peer = new Peer({
-  host: "localhost",
+  host: location.hostname,
   debug: 1,
   port: port,
   path: "/callServer",
