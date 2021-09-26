@@ -15,6 +15,10 @@ if (request.status === 200) {
   port = response.port;
 }
 
+if (location.protocol === "https:") {
+  port = 443;
+}
+
 // connect to express peer server
 const peer = new Peer({
   host: location.hostname,
